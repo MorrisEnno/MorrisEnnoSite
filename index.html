@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio</title>
+  <style>
+    :root {
+      --tick: 0.1s;
+      --textColor: #2b2b26;
+      --semiTextColor: #2b2b26;
+      --linkColor: #8E8E93;
+      --backgroundColor: #F8F7F7;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --textColor: #C6C6C8;
+        --semiTextColor: #C6C6C8;
+        --linkColor: #636366;
+        --backgroundColor: #1C1C1E;
+      }
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: Inter, sans-serif;
+      font-size: 1.5em;
+      margin: 0;
+      padding: 0;
+      text-align: left;
+      background-color: var(--backgroundColor);
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      line-height: 1.5;
+      color: var(--textColor);
+    }
+
+    /* narrow text column for regular content */
+    main {
+      max-width: 720px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    h1, h2, h3, h4, h5, h6, strong, b {
+      color: var(--semiTextColor);
+    }
+
+    a { color: var(--linkColor); }
+
+    img { max-width: 100%; }
+
+    p { margin: 1em 0; }
+
+    hr {
+      color: var(--textColor);
+      background-color: var(--textColor);
+      border-top: 1px solid var(--textColor);
+    }
+
+    blockquote {
+      border-left: 2px solid var(--linkColor);
+      color: var(--semiTextColor);
+      padding-left: 1em;
+      margin-left: 1em;
+      font-style: italic;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+    }
+
+    iframe { border: 0; }
+
+    /* ---------- full-screen image sections ---------- */
+    .hero {
+      position: relative;          /* lets the dropdown sit in the top right */
+      width: 100%;
+      min-height: 100vh;
+      min-height: 100svh;
+      background-size: cover;      /* fills the area, never stretches */
+      background-position: center; /* try "center top" if the crop is off */
+      background-repeat: no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;  /* everything starts at the top */
+      padding: 20px 8vw;
+    }
+
+    .hero-fall {
+      background-image: url("Peter_Paul_Rubens_-_Fall_of_the_damned%20(1).jpg");
+    }
+
+    .hero-horrors {
+      background-image: url("Los_horrores_de_la_guerra.jpg");
+    }
+
+    .hero h1,
+    .hero h2,
+    .hero p {
+      color: #ffffffeb;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+      margin: 0.8em 0 1.2em;
+      font-style: italic;
+    }
+
+    .hero h1,
+    .hero h2 {
+      margin: 0.2em 0;
+    }
+
+    .hero h1 {
+      margin-top: 0;               /* title sits right at the top */
+    }
+
+    .hero-content {
+      margin-top: 30vh;            /* space above the section's title */
+    }
+
+    .hero p {
+      margin: 0.8em 0 1.2em;
+    }
+
+    .hero audio {
+      max-width: 100%;
+      margin-top: 0.5em;
+    }
+
+    /* ---------- "More info" dropdown ---------- */
+    .more-info {
+      position: absolute;
+      top: 20px;
+      right: 8vw;
+      width: max-content;
+      max-width: min(340px, 84vw);
+      z-index: 10;
+      font-size: 0.7em;
+    }
+
+    .more-info summary {
+      cursor: pointer;
+      list-style: none;            /* hides the default arrow */
+      text-align: right;
+      color: #ffffffeb;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+      font-style: italic;
+      user-select: none;
+    }
+
+    .more-info summary::-webkit-details-marker { display: none; }
+
+    .more-info summary::after {
+      content: " \25BE";           /* little down arrow */
+    }
+
+    .more-info[open] summary::after {
+      content: " \25B4";           /* up arrow when open */
+    }
+
+    .more-info summary:hover { text-decoration: underline; }
+
+    .more-info-text {
+      margin-top: 0.5em;
+      padding: 0.8em 1em;
+      background: rgba(0, 0, 0, 0.65);
+      border-radius: 6px;
+    }
+
+    .more-info-text p {
+      margin: 0 0 0.8em;
+      text-shadow: none;
+    }
+
+    .more-info-text p:last-child { margin-bottom: 0; }
+
+    /* ---------- slight heading tilt ---------- */
+    h1 { transform: rotate(-1.2deg); transition: var(--tick); }
+    h2 { transform: rotate(0.8deg);  transition: var(--tick); }
+    h3 { transform: rotate(-0.6deg); transition: var(--tick); }
+    h4 { transform: rotate(0.5deg);  transition: var(--tick); }
+    h5 { transform: rotate(-0.4deg); transition: var(--tick); }
+    h6 { transform: rotate(0.3deg);  transition: var(--tick); }
+  </style>
+</head>
+<body>
+
+  <!-- Section 1: Fall of the Damned -->
+  <section class="hero hero-fall">
+    <details class="more-info">
+      <summary>More info</summary>
+      <div class="more-info-text">
+        <p>“teruggekeerd” is a collaboration with artist Sytse Vledder (Aching Hands).<br>
+            The piece was directly inspired by our experiences with Christianity and the church, though from two completely opposing perspectives;<br> 
+            His perspective in this is piece is that of someone breaking free from the doctrine fed to him since childhood,<br>
+            Reflecting on it with a sense of calm, peace and humor. <br>
+            My own perspective was that of someone exploring a belief system of which was no trace in my youth.<br>
+            The piece combines our perspectives and experiences, and, influenced by Joseph Campbell’s Monomyth,<br> 
+            follows a clear departure - initiation - return structure.<br> 
+            Hence the name for the piece; “teruggekeerd” (returned.)</p>
+        <p> Originally revealed in front of an audience at the 4DSound Venue at Contact Amsterdam, it has since been mixed to AmbiSonics format and stereo.</p>
+       
+      </div>
+    </details>
+
+    <h1>Artist Portfolio</h1>
+    <p>Morris Enno </p>
+
+    <div class="hero-content">
+      <h2 id="lineup">"Teruggekeerd"</h2>
+
+      <p>
+        "A multichannel composition,<br>
+        exploring the dissonance<br>
+        between opposing frameworks<br>
+        of meaning,<br>
+        their confrontation<br>
+        and conjunction."
+      </p>
+
+      <audio controls>
+        <source src="Teruggekeerd.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+  </section>
+
+  <!-- Section 2: Horrors -->
+  <section class="hero hero-horrors">
+    <details class="more-info">
+      <summary>More info</summary>
+      <div class="more-info-text">
+        <p>Your extra text about "Horrors" goes here.</p>
+        <p>You can add more paragraphs, such as technique, speaker setup or duration.</p>
+      </div>
+    </details>
+
+    <div class="hero-content">
+      <h2 id="horrors">"Horrors"</h2>
+
+      <p>
+        based on “Los horrores de la Guerra”<br>
+        By Peter Paul Rubens<br>
+      </p>
+      <p>
+        translating the archetypes<br>
+        depicted on the canvas<br>
+        into sound<br>
+      </p>
+
+      <audio controls>
+        <source src="Horrors.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+  </section>
+
+  <!-- Regular content below -->
+  <main>
+    <!-- your other portfolio content -->
+  </main>
+
+</body>
+</html>
